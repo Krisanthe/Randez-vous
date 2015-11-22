@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.136162 0.984859 0.107298 4.87864
-  position -1.7574 0.267036 -0.549038
+  orientation -0.0591214 -0.995448 -0.0747556 1.88683
+  position -1.03262 0.181553 -0.869809
 }
 Background {
   skyColor [
@@ -32,6 +32,69 @@ OilBarrel {
 DifferentialWheels {
   translation -0.55 0.04 -0.87
   children [
+    LightSensor {
+      translation -0.05 0 0.03
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    LightSensor {
+      translation 0.05 0 0.03
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    LightSensor {
+      translation 0 0 -0.1
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    LightSensor {
+      translation 0 0 0.1
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    PointLight {
+      location 0 0.1 0
+    }
     DistanceSensor {
       translation 0.03 0.01 0.1
       rotation 0 1 0 0.3
@@ -156,6 +219,69 @@ DifferentialWheels {
 DifferentialWheels {
   translation -0.2 0.04 -0.77
   children [
+    LightSensor {
+      translation 0 0 0.1
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    LightSensor {
+      translation 0 0 -0.1
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    LightSensor {
+      translation 0.05 0 0.03
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    LightSensor {
+      translation -0.05 0 0.03
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    PointLight {
+      location 0 0.1 0
+    }
     DistanceSensor {
       translation 0.03 0.01 0.1
       rotation 0 1 0 0.3
