@@ -1,0 +1,405 @@
+#VRML_SIM V8.3.0 utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.0591214 -0.995448 -0.0747556 1.88683
+  position -1.03262 0.181553 -0.869809
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction 0.1 -0.5 0.3
+}
+RectangleArena {
+  floorSize 5 5
+}
+OilBarrel {
+  translation 0 0.3 0
+  height 0.6
+}
+OilBarrel {
+  translation 1 0.3 2
+  height 0.6
+}
+OilBarrel {
+  translation -2 0.3 0.5
+  height 0.6
+}
+DifferentialWheels {
+  translation -0.55 0.04 -0.87
+  children [
+    LightSensor {
+      translation -0.05 0 0.03
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    LightSensor {
+      translation 0.05 0 0.03
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    LightSensor {
+      translation 0 0 -0.1
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    LightSensor {
+      translation 0 0 0.1
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    PointLight {
+      location 0 0.1 0
+    }
+    DistanceSensor {
+      translation 0.03 0.01 0.1
+      rotation 0 1 0 0.3
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.2 0.2 0.8
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      type "sonar"
+    }
+    DistanceSensor {
+      translation -0.03 0.01 0.1
+      rotation 0 1 0 -0.3
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.2 0.2 0.8
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      type "sonar"
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+      }
+      device [
+        RotationalMotor {
+        }
+      ]
+      endPoint DEF WheelLeft Solid {
+        rotation 0 0 1 1.57
+        children [
+          DEF Wheel Transform {
+            translation 0 -0.06 -0.05
+            children [
+              Shape {
+                appearance Appearance {
+                  material Material {
+                    diffuseColor 0.2 0.8 0.2
+                  }
+                }
+                geometry Cylinder {
+                  height 0.02
+                  radius 0.04
+                }
+              }
+            ]
+          }
+        ]
+        boundingObject USE Wheel
+        physics DEF WHEEL_PH Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+      }
+      device [
+        RotationalMotor {
+        }
+      ]
+      endPoint DEF RightWheel Solid {
+        children [
+          DEF Wheel Transform {
+            translation -0.06 0 -0.05
+            rotation 0 0 1 1.57
+            children [
+              Shape {
+                appearance Appearance {
+                  material Material {
+                    diffuseColor 0.2 0.8 0.2
+                  }
+                }
+                geometry Cylinder {
+                  height 0.02
+                  radius 0.04
+                }
+              }
+            ]
+          }
+        ]
+        boundingObject USE Wheel
+        physics DEF WHEEL_PH Physics {
+        }
+      }
+    }
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.8 0.2 0.2
+          specularColor 0.9 0 0
+        }
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+  ]
+  boundingObject Shape {
+    appearance Appearance {
+      material Material {
+        specularColor 0.9 0 0
+      }
+    }
+    geometry Box {
+      size 0.1 0.05 0.2
+    }
+  }
+}
+DifferentialWheels {
+  translation -0.2 0.04 -0.77
+  children [
+    LightSensor {
+      translation 0 0 0.1
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    LightSensor {
+      translation 0 0 -0.1
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    LightSensor {
+      translation 0.05 0 0.03
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    LightSensor {
+      translation -0.05 0 0.03
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.7 0.7 0.1
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    PointLight {
+      location 0 0.1 0
+    }
+    DistanceSensor {
+      translation 0.03 0.01 0.1
+      rotation 0 1 0 0.3
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.2 0.2 0.8
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      type "sonar"
+    }
+    DistanceSensor {
+      translation -0.03 0.01 0.1
+      rotation 0 1 0 -0.3
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.2 0.2 0.8
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      type "sonar"
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+      }
+      device [
+        RotationalMotor {
+        }
+      ]
+      endPoint DEF WheelLeft Solid {
+        rotation 0 0 1 1.57
+        children [
+          DEF Wheel Transform {
+            translation 0 -0.06 -0.05
+            children [
+              Shape {
+                appearance Appearance {
+                  material Material {
+                    diffuseColor 0.2 0.8 0.2
+                  }
+                }
+                geometry Cylinder {
+                  height 0.02
+                  radius 0.04
+                }
+              }
+            ]
+          }
+        ]
+        boundingObject USE Wheel
+        physics DEF WHEEL_PH Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+      }
+      device [
+        RotationalMotor {
+        }
+      ]
+      endPoint DEF RightWheel Solid {
+        children [
+          DEF Wheel Transform {
+            translation -0.06 0 -0.05
+            rotation 0 0 1 1.57
+            children [
+              Shape {
+                appearance Appearance {
+                  material Material {
+                    diffuseColor 0.2 0.8 0.2
+                  }
+                }
+                geometry Cylinder {
+                  height 0.02
+                  radius 0.04
+                }
+              }
+            ]
+          }
+        ]
+        boundingObject USE Wheel
+        physics DEF WHEEL_PH Physics {
+        }
+      }
+    }
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.2 0.2 0.8
+          specularColor 0.9 0 0
+        }
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+  ]
+  boundingObject Shape {
+    appearance Appearance {
+      material Material {
+        specularColor 0.9 0 0
+      }
+    }
+    geometry Box {
+      size 0.1 0.05 0.2
+    }
+  }
+}
