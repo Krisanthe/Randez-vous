@@ -1,0 +1,16 @@
+CO ZOSTA£O ZROBIONE:
+
+- Algorytm przeszukiwania mapy (lekka wersja A*, liczy wagi, idzie tam, gdzie waga jest najmniejsza) - jeden robot ca³y czas eksploruje, drugi staje co jakiœ czas. Takie rozwi¹zanie czasem dzia³a jak chce ale ogólnie daje rade ;P
+
+- Zaimplementowano Ÿród³a œwiat³a - jeden robot emituje w trzech kierunkach œwiat³o niebieskie drugi czerwone - wynika to z faktu, i¿ Webots jest zjebany i nie radzi sobie ze œwiat³em kierunkowym (je¿eli robot siê obróci, to Ÿród³o œwiat³a nie obraca siê wraz z nim -.- koszmar ogólnie).  
+
+- Zaimplementowano czujniki œwiat³a (w zwi¹zku z powy¿szym jeden robot reaguje tylko na œwiat³o czerwone, drugi tylko na niebieskie, oœwietlenie ogólne zosta³o zmienione na zielone, dziêki temu nie powoduje zak³óceñ przy czujnikach - je¿eli czujnik coœ wykryje to na pewno jest to œwiat³o drugiego robota) - podobnie jak z pierwszym - czasem dzia³a jak chce tzn. czasem jad¹ na wprost siebie, jeden wykrywa œwiat³o drugiego, ale drugi nie wykrywa œwiat³a pierwszego, nie pytajcie jak to jest mo¿liwe, oba maj¹ zaimplementowane wszystko w ten sam sposób, poza kolorem œwiat³a. 
+
+CO DO ZROBIENIA:
+
+- Algorytm dzia³ania gdy roboty siê wykryj¹ - obecnie jak jeden wykryje drugiego to staje. Trzeba zrobiæ coœ na zasadzie, ¿e:
+- Robot A, je¿eli wykryje robota B to stara siê za nim pod¹¿aæ
+- Robot B, zlicza czas w jakim Robot A znajduje siê w jego bezpoœrednim otoczeniu (wykrywa jego œwiat³o). Je¿eli Robot B stwierdzi ¿e np. 75% czasu w ci¹gu 1 min Robot A za nim jeŸdzi³ to uznajemy ¿e to ten którego szukaliœmy. 
+
+W razie pytañ pisaæ, Tomek
+Polecam na pocz¹tek zobaczyæ symulacjê, ogarn¹c co i jak. 
