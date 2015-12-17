@@ -1,0 +1,688 @@
+#VRML_SIM V8.3.1 utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.598563 0.559601 0.573209 4.12719
+  position 0.937589 15.5558 -0.657289
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+DirectionalLight {
+  ambientIntensity 1
+  color 0 1 0
+  direction 0 -1 0
+}
+RectangleArena {
+  floorSize 5 5
+}
+Wall {
+  translation 2.5 0 0
+  rotation 0 1 0 1.5708
+  size 5 1 0.1
+}
+Wall {
+  translation -2.5 0 0
+  rotation 0 1 0 1.5708
+  size 5 1 0.1
+}
+CardboardBox {
+  translation -1.125 0.15 -0.05
+  size 0.25 0.5 1
+}
+CardboardBox {
+  translation 2.005 0.15 0.360001
+  rotation 0 1 0 1.5708
+  size 0.25 0.5 1
+}
+CardboardBox {
+  translation 0.00500352 0.16 -0.415002
+  rotation 0 1 0 1.5708
+  size 0.25 0.5 2
+}
+CardboardBox {
+  translation 0.875 0.15 -1.55
+  size 0.25 0.5 2
+}
+CardboardBox {
+  translation 1.63 0.15 1.48499
+  rotation 0 1 0 3.1416
+  size 0.25 0.5 2
+}
+DEF KOBIETA Robot {
+  translation -2.22995 0.033993 0.139994
+  rotation -0.103645 0.00238693 -0.994611 0.0011077
+  children [
+    LightSensor {
+      translation 0 0 -0.1
+      rotation 0 1 0 1.57079
+      name "light sensor back"
+      translationStep 1e-06
+      rotationStep 1e-06
+      lookupTable [
+        0 0 0
+        0.1 1000 0
+      ]
+      colorFilter 0 0 1
+      occlusion TRUE
+    }
+    DEF LEFT_LIGHT SpotLight {
+      attenuation 5 0 5
+      beamWidth 1.5707
+      color 1 0 0
+      cutOffAngle 1.5704
+      direction 0 1 0
+      location 0.08 -0.03 0
+      radius 1
+    }
+    LightSensor {
+      translation 0.05 0 0
+      name "light sensor left"
+      translationStep 1e-06
+      rotationStep 1e-06
+      lookupTable [
+        0 0 0
+        0.1 1000 0
+      ]
+      colorFilter 0 0 1
+      occlusion TRUE
+    }
+    DEF FRONT_LIGHT SpotLight {
+      attenuation 5 0 5
+      beamWidth 1.5707
+      color 1 0 0
+      cutOffAngle 1.5704
+      direction 0 1 0
+      location 0 -0.03 0.11
+      radius 1
+    }
+    DEF REAR_LIGHT SpotLight {
+      attenuation 5 0 5
+      beamWidth 1.5707
+      color 1 0 0
+      cutOffAngle 1.5704
+      direction 0 1 0
+      location 0 -0.03 -0.11
+      radius 1
+    }
+    DEF RIGHT_LIGHT SpotLight {
+      attenuation 5 0 5
+      beamWidth 1.5707
+      color 1 0 0
+      cutOffAngle 1.5704
+      direction 0 1 0
+      location -0.08 -0.03 0
+      radius 1
+    }
+    LightSensor {
+      translation -0.05 0 0
+      rotation 0 1 0 -3.14159
+      name "light sensor right"
+      translationStep 1e-06
+      rotationStep 1e-06
+      lookupTable [
+        0 0 0
+        0.1 1000 0
+      ]
+      colorFilter 0 0 1
+      occlusion TRUE
+    }
+    LightSensor {
+      translation 0 0 0.1
+      rotation 0 1 0 -1.5708
+      name "light sensor front"
+      translationStep 1e-06
+      rotationStep 1e-06
+      lookupTable [
+        0 0 0
+        0.1 1000 0
+      ]
+      colorFilter 0 0 1
+      occlusion TRUE
+    }
+    DEF DS_LEFT_REAR DistanceSensor {
+      translation 0.05 0 -0.0075
+      rotation 0 1 0 0.261799
+      name "ds_left_rear"
+      lookupTable [
+        0 0 0
+        0.7 7000 0
+      ]
+      type "laser"
+    }
+    DEF DS_RIGHT_REAR DistanceSensor {
+      translation -0.05 0 -0.0075
+      rotation 0 -1 0 3.40339
+      name "ds_right_rear"
+      lookupTable [
+        0 0 0
+        0.7 7000 0
+      ]
+      type "laser"
+    }
+    GPS {
+      rotationStep 0.1
+    }
+    Compass {
+    }
+    DEF DS_RIGHT_FRONT DistanceSensor {
+      translation -0.03 0 0.1
+      rotation 0 1 0 -1.87079
+      children [
+        DEF DIST_SENSOR Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.3 0.3 0.3
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_right_front"
+      lookupTable [
+        0 0 0
+        0.7 7000 0
+      ]
+      type "laser"
+    }
+    DEF DS_LEFT_FRONT DistanceSensor {
+      translation 0.03 0 0.1
+      rotation 0 1 0 -1.27079
+      children [
+        USE DIST_SENSOR
+      ]
+      name "ds_left_front"
+      lookupTable [
+        0 0 0
+        0.7 7000 0
+      ]
+      type "laser"
+    }
+    DEF DS_RIGHT_FRONT DistanceSensor {
+      translation -0.05 0 -0.0075
+      rotation 0 1 0 3.40339
+      children [
+        USE DIST_SENSOR
+      ]
+      name "ds_rightfront"
+      lookupTable [
+        0 0 0
+        0.7 7000 0
+      ]
+      type "laser"
+    }
+    DEF DS_LEFT_FRONT DistanceSensor {
+      translation 0.05 0 -0.0075
+      rotation 0 1 0 6.02139
+      children [
+        USE DIST_SENSOR
+      ]
+      name "ds_leftfront"
+      lookupTable [
+        0 0 0
+        0.7 7000 0
+      ]
+      type "laser"
+    }
+    DEF DS_BACK DistanceSensor {
+      translation 0 0 -0.1
+      rotation 0 1 0 1.5708
+      children [
+        USE DIST_SENSOR
+      ]
+      name "ds_back"
+      lookupTable [
+        0 0 0
+        0.7 7000 0
+      ]
+      type "laser"
+    }
+    DEF WHEEL4 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 4989.84
+        anchor -0.06 0 -0.055
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+          maxVelocity 20
+        }
+      ]
+      endPoint Solid {
+        translation -0.0600642 -2.86129e-05 -0.0550131
+        rotation 0.999971 0.0075707 -0.00119898 0.399532
+        children [
+          DEF WHEEL Transform {
+            rotation 0 0 1 1.5708
+            children [
+              Shape {
+                appearance Appearance {
+                  material Material {
+                    diffuseColor 0 0 0
+                  }
+                }
+                geometry Cylinder {
+                  height 0.02
+                  radius 0.035
+                  subdivision 24
+                }
+              }
+            ]
+          }
+        ]
+        boundingObject USE WHEEL
+        physics DEF WHEEL_PH Physics {
+        }
+        linearVelocity 0.000116796 0.00781001 0.000115436
+        angularVelocity 0.00329775 -1.34778e-06 -0.00333605
+      }
+    }
+    DEF WHEEL3 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 4763.59
+        anchor 0.06 0 -0.055
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+          maxVelocity 20
+        }
+      ]
+      endPoint Solid {
+        translation 0.0600676 -7.21186e-05 -0.0549667
+        rotation 0.999972 0.00337601 0.00665755 -0.613413
+        children [
+          USE WHEEL
+        ]
+        boundingObject USE WHEEL
+        physics DEF WHEEL_PH Physics {
+        }
+        linearVelocity 0.000116741 0.00820627 0.000115343
+        angularVelocity 0.00329777 -1.3487e-06 -0.00333608
+      }
+    }
+    DEF WHEEL2 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 4989.58
+        anchor -0.06 0 0.04
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+          maxVelocity 20
+        }
+      ]
+      endPoint Solid {
+        translation -0.0600743 4.41156e-05 0.0399088
+        rotation 0.999774 0.0212722 -0.00059897 0.143101
+        children [
+          USE WHEEL
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+        linearVelocity 0.000116768 0.00749672 0.000115487
+        angularVelocity 0.00329775 -1.34806e-06 -0.00333606
+      }
+    }
+    DEF WHEEL1 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 4763.33
+        anchor 0.06 0 0.04
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+          maxVelocity 20
+        }
+      ]
+      endPoint Solid {
+        translation 0.06006 2.11565e-05 0.0400095
+        rotation 0.999986 0.00178681 0.00504069 -0.869744
+        children [
+          USE WHEEL
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+        linearVelocity 0.00011675 0.0078909 0.000115424
+        angularVelocity 0.00329777 -1.34905e-06 -0.00333607
+      }
+    }
+    DEF BODY Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0 0 0
+        }
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+  ]
+  boundingObject USE BODY
+  physics Physics {
+  }
+  controller "python"
+}
+DEF FACET Robot {
+  translation -2.14995 0.033935 -0.370003
+  rotation -0.000549675 -1 5.72792e-05 3.14159
+  children [
+    LightSensor {
+      translation 0 0 -0.1
+      rotation 0 1 0 1.5708
+      name "light sensor back"
+      translationStep 1e-06
+      rotationStep 1e-06
+      lookupTable [
+        0 0 0
+        0.1 1000 0
+      ]
+      colorFilter 1 0 0
+      occlusion TRUE
+    }
+    DEF FRONT SpotLight {
+      attenuation 5 0 5
+      beamWidth 1.5707
+      color 0 0 1
+      cutOffAngle 1.5704
+      direction 0 1 0
+      location 0 -0.03 0.11
+      radius 1
+    }
+    DEF LEFT SpotLight {
+      attenuation 5 0 5
+      beamWidth 1.5707
+      color 0 0 1
+      cutOffAngle 1.5704
+      direction 0 1 0
+      location 0.08 -0.03 0
+      radius 1
+    }
+    DEF RIGHT SpotLight {
+      attenuation 5 0 5
+      beamWidth 1.5707
+      color 0 0 1
+      cutOffAngle 1.5704
+      direction 0 1 0
+      location -0.08 -0.03 0
+      radius 1
+    }
+    LightSensor {
+      translation 0 0 0.1
+      rotation 0 1 0 -1.5708
+      name "light sensor front"
+      translationStep 1e-06
+      rotationStep 1e-06
+      lookupTable [
+        0 0 0
+        0.1 1000 0
+      ]
+      colorFilter 1 0 0
+      occlusion TRUE
+    }
+    LightSensor {
+      translation 0.05 0 0
+      name "light sensor left"
+      translationStep 1e-06
+      rotationStep 1e-06
+      lookupTable [
+        0 0 0
+        0.1 1000 0
+      ]
+      colorFilter 1 0 0
+      occlusion TRUE
+    }
+    LightSensor {
+      translation -0.05 0 0
+      rotation 0 1 0 -3.14159
+      name "light sensor right"
+      translationStep 1e-06
+      rotationStep 1e-06
+      lookupTable [
+        0 0 0
+        0.1 1000 0
+      ]
+      colorFilter 1 0 0
+      occlusion TRUE
+    }
+    DEF DS_LEFT_REAR DistanceSensor {
+      translation 0.05 0 -0.0075
+      rotation 0 1 0 0.261799
+      name "ds_left_rear"
+      lookupTable [
+        0 0 0
+        0.7 7000 0
+      ]
+      type "laser"
+    }
+    DEF DS_RIGHT_REAR DistanceSensor {
+      translation -0.05 0 -0.0075
+      rotation 0 -1 0 3.40339
+      name "ds_right_rear"
+      lookupTable [
+        0 0 0
+        0.7 7000 0
+      ]
+      type "laser"
+    }
+    GPS {
+      rotationStep 0.1
+    }
+    Compass {
+    }
+    DEF DS_RIGHT_FRONT DistanceSensor {
+      translation -0.03 0 0.1
+      rotation 0 1 0 -1.87079
+      children [
+        DEF DIST_SENSOR Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.3 0.3 0.3
+            }
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_right_front"
+      lookupTable [
+        0 0 0
+        0.7 7000 0
+      ]
+      type "laser"
+    }
+    DEF DS_LEFT_FRONT DistanceSensor {
+      translation 0.03 0 0.1
+      rotation 0 1 0 -1.27079
+      children [
+        USE DIST_SENSOR
+      ]
+      name "ds_left_front"
+      lookupTable [
+        0 0 0
+        0.7 7000 0
+      ]
+      type "laser"
+    }
+    DEF DS_RIGHT_FRONT DistanceSensor {
+      translation -0.05 0 -0.0075
+      rotation 0 1 0 3.40339
+      children [
+        USE DIST_SENSOR
+      ]
+      name "ds_rightfront"
+      lookupTable [
+        0 0 0
+        0.7 7000 0
+      ]
+      type "laser"
+    }
+    DEF DS_LEFT_FRONT DistanceSensor {
+      translation 0.05 0 -0.0075
+      rotation 0 1 0 6.02139
+      children [
+        USE DIST_SENSOR
+      ]
+      name "ds_leftfront"
+      lookupTable [
+        0 0 0
+        0.7 7000 0
+      ]
+      type "laser"
+    }
+    DEF DS_BACK DistanceSensor {
+      translation 0 0 -0.1
+      rotation 0 1 0 1.5708
+      children [
+        USE DIST_SENSOR
+      ]
+      name "ds_back"
+      lookupTable [
+        0 0 0
+        0.7 7000 0
+      ]
+      type "laser"
+    }
+    DEF WHEEL4 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 4989.84
+        anchor -0.06 0 -0.055
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+          maxVelocity 20
+        }
+      ]
+      endPoint Solid {
+        translation -0.0600642 -2.86129e-05 -0.0550131
+        rotation 0.999971 0.0075707 -0.00119898 0.399532
+        children [
+          DEF WHEEL Transform {
+            rotation 0 0 1 1.5708
+            children [
+              Shape {
+                appearance Appearance {
+                  material Material {
+                    diffuseColor 0 0 0
+                  }
+                }
+                geometry Cylinder {
+                  height 0.02
+                  radius 0.035
+                  subdivision 24
+                }
+              }
+            ]
+          }
+        ]
+        boundingObject USE WHEEL
+        physics DEF WHEEL_PH Physics {
+        }
+        linearVelocity 0.000116796 0.00781001 0.000115436
+        angularVelocity 0.00329775 -1.34778e-06 -0.00333605
+      }
+    }
+    DEF WHEEL3 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 4763.59
+        anchor 0.06 0 -0.055
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+          maxVelocity 20
+        }
+      ]
+      endPoint Solid {
+        translation 0.0600676 -7.21186e-05 -0.0549667
+        rotation 0.999972 0.00337601 0.00665755 -0.613413
+        children [
+          USE WHEEL
+        ]
+        boundingObject USE WHEEL
+        physics DEF WHEEL_PH Physics {
+        }
+        linearVelocity 0.000116741 0.00820627 0.000115343
+        angularVelocity 0.00329777 -1.3487e-06 -0.00333608
+      }
+    }
+    DEF WHEEL2 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 4989.58
+        anchor -0.06 0 0.04
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+          maxVelocity 20
+        }
+      ]
+      endPoint Solid {
+        translation -0.0600743 4.41156e-05 0.0399088
+        rotation 0.999774 0.0212722 -0.00059897 0.143101
+        children [
+          USE WHEEL
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+        linearVelocity 0.000116768 0.00749672 0.000115487
+        angularVelocity 0.00329775 -1.34806e-06 -0.00333606
+      }
+    }
+    DEF WHEEL1 HingeJoint {
+      jointParameters HingeJointParameters {
+        position 4763.33
+        anchor 0.06 0 0.04
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+          maxVelocity 20
+        }
+      ]
+      endPoint Solid {
+        translation 0.06006 2.11565e-05 0.0400095
+        rotation 0.999986 0.00178681 0.00504069 -0.869744
+        children [
+          USE WHEEL
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+        linearVelocity 0.00011675 0.0078909 0.000115424
+        angularVelocity 0.00329777 -1.34905e-06 -0.00333607
+      }
+    }
+    DEF BODY Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.101961 0.384314 1
+        }
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+  ]
+  boundingObject USE BODY
+  physics Physics {
+  }
+  controller "pyt"
+}
+Wall {
+  translation 0 0 2.5
+  size 5 1 0.1
+}
+Wall {
+  translation 0 0 -2.5
+  size 5 1 0.1
+}
